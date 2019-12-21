@@ -88,6 +88,6 @@ EXPOSE 3000 49184 49184/udp
 LABEL description="BitTorrent client with WebUI front-end" \
       rtorrent="rTorrent BiTorrent client v$RTORRENT_VER" \
       libtorrent="libtorrent v$LIBTORRENT_VER" \
-      maintainer="Wonderfall <wonderfall@targaryen.house>"
+      maintainer="flosoft <florian@florianjensen.com>"
 
 CMD ["run.sh"]
