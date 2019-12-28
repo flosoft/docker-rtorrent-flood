@@ -1,0 +1,47 @@
+version: "3"
+services:
+  rtorrent-flood:
+    image: florider89/rtorrent-flood:latest
+    hostname: rtorrent-flood
+    environment:
+      - UID=##UID##
+      - GID=##GID##
+      - FLOOD_SECRET=####SECRET GOES HERE####
+      - RTORRENT_SCGI=5004
+      - WEBROOT=/flood
+    volumes:
+      - /LOCAL CONFIG DIRECTORY:/flood-db
+      - /PARENT DATA FOLDER FOR RTORRENT:/data
+    ports:
+      - 49184:49184
+      - 49184:49184/udp
+    tty: true
+    restart: unless-stopped
+
+  nginx:
+    image: nginx
+    hostname: nginx
+    volumes:
+      - /LOCAL MOUNT TO NGINX.CONF:/etc/nginx/conf.d/default.conf
+    ports:
+      - 3000:80
+    restart: unless-stopped
+    depends_on:
+      - rtorrent-flood
+
+  sonarr:
+    image: linuxserver/sonarr:preview
+    #container_name: sonarr
+    environment:
+      - PUID=##UID##
+      - PGID=##GID##
+      - TZ=Europe/Madrid
+      #- UMASK_SET=022 #optional
+    volumes:
+      - /LOCAL CONFIG FOR SONAR:/config
+      - /PARENT DATA FOLDER FOR RTORRENT:/data
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+    depends_on:
+      - rtorrent-flood
