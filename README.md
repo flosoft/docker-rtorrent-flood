@@ -44,6 +44,9 @@ Run this container with tty mode enabled. In your `docker-compose.yml`, add `tty
 You can find a sample `docker-compose.yml` file that configures both Flood + rTorrent but also Sonarr. This configuration supports hardlinks between Sonarr and Flood / rTorrent.
 Also make sure to mount the nginx.conf file, a template of which can be found in the repository as well.
 
+* [docker-compose.yml](docker-compose.yml)
+* [nginx.conf](nginx.conf)
+
 ##### Items to configure in docker-compose.yml
 Value | Description
 --- | ---
