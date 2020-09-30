@@ -1,9 +1,3 @@
 #!/bin/sh
 cd /usr/flood
-
-if [ ! -z ${WEBROOT+x} ] && [ ${WEBROOT} != "/" ]; then
-    npm install
-    npm run build
-fi
-
 exec npm start
