@@ -3,11 +3,11 @@ FROM alpine:3.12
 ARG RTORRENT_VER=0.9.8
 ARG LIBTORRENT_VER=0.13.8
 ARG MEDIAINFO_VER=20.09
-ARG FLOOD_VER=4.0.2
+ARG FLOOD_VER=4.1.2
 ARG BUILD_CORES
 
 ENV UID=991 GID=991 \
-    FLOOD_SECRET=supersecret \
+    FLOOD_SECRET=supersecret30charactersminimum \
     WEBROOT=/ \
     DISABLE_AUTH=false \
     RTORRENT_SOCK=true \
@@ -84,6 +84,6 @@ EXPOSE 3000 49184 49184/udp
 LABEL description="BitTorrent client with WebUI front-end" \
       rtorrent="rTorrent BiTorrent client v$RTORRENT_VER" \
       libtorrent="libtorrent v$LIBTORRENT_VER" \
-      maintainer="flosoft <florian@florianjensen.com>"
+      maintainer="Wonderfall <wonderfall@targaryen.house>"
 
 CMD ["run.sh"]
