@@ -6,9 +6,10 @@ services:
     environment:
       - UID=##UID##
       - GID=##GID##
-      - FLOOD_SECRET=####SECRET GOES HERE####
+      - FLOOD_SECRET=####SECRET GOES HERE - MIN 30 CHARS!####
       - RTORRENT_SCGI=5004
-      - WEBROOT=/flood
+      - RTORRENT_SOCK=false
+      - PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
     volumes:
       - /LOCAL CONFIG DIRECTORY:/flood-db
       - /PARENT DATA FOLDER FOR RTORRENT:/data
