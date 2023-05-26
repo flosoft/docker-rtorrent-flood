@@ -41,7 +41,7 @@ RUN NB_CORES=${BUILD_CORES-`getconf _NPROCESSORS_CONF`} \
     zlib \
     s6 \
     su-exec \
-    python2 \
+    python3 \
     nodejs \
     npm \
     unrar \
